@@ -1,16 +1,20 @@
-
-const Joi = require('joi');
 const express = require ('express');
-const app = express()
+const app = express();
+const Joi = require('joi');
+const database = require('./database');
+
+//setup link to mock database
+const courses = database;
+
+// middleware 
 
 app.use(express.json()); // express.json() adds a bit of middleware and 'app.use' makes the app use that middleware in the req processing pipeline
 
-// create a mock db using a simple array.
-const courses = [
-  { id: 1, name: "Course Java"},
-  { id: 2, name: "Course JavaScript"},
-  { id: 3, name: "Course Nodejs and Express"},
-]; 
+const logger = require('./middleware/logger');
+app.use(logger);
+
+const auth = require('./middleware/auth');
+app.use(auth);
 
 // CREATE using post convention, always validate post input
 app.post("/api/courses", (req, res) => {
