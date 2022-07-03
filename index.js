@@ -14,6 +14,7 @@ const logger = require('./middleware/logger');
 app.use(logger);
 
 const auth = require('./middleware/auth');
+const { string } = require('joi');
 app.use(auth);
 
 // CREATE using post convention, always validate post input

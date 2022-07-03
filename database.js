@@ -1,21 +1,36 @@
+const dirTree = require('directory-tree');
 
-// create a mock db using a simple array.
-const courses = [
-  { id: 1, name: "Course Java"},
-  { id: 2, name: "Course JavaScript"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 4, name: "Course Nodejs and Express"},
-  { id: 5, name: "Course Nodejs and Express"},
-  { id: 6, name: "Course Nodejs and Express"},
-  { id: 7, name: "Course Nodejs and Express"},
-  { id: 8, name: "Course Nodejs and Express"},
-  { id: 9, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-  { id: 3, name: "Course Nodejs and Express"},
-]; 
+/** create a mock db
+* use the pdf files to create mock records in a JSON array
+*
+*/
+
+const mockDb = [];
+let id = 0;
+
+const tree = dirTree("./public/assets")
+tree.children.forEach(fileName => {
+  mockDb.push(fileName);
+  id++;
+});;
+  
+let courses = {
+  summary: []
+};
+
+mockDb.map((item) => {        
+  courses.summary.push({ 
+      "id" :  'x',
+      "name" : item.name.slice(0,-4).replace(/-summary/g,' ').replace(/-/g,' ').trim(),
+      "path" : item.path      
+  });
+})
+
+let  i = 0;
+
+Object.entries(courses.summary).forEach(([key, value]) => {
+  courses.summary[key].id = i;
+  i++
+});
 
 module.exports = courses;
