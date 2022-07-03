@@ -1,10 +1,18 @@
 const express = require ('express');
 const app = express();
 const Joi = require('joi');
-const database = require('./database');
 
 //setup link to mock database
+const database = require('./database');
 const courses = database;
+
+// Setup Handlebars
+const handlebars = require("express-handlebars");
+app.engine("handlebars", handlebars({
+    defaultLayout: "main"
+}));
+
+app.set("view engine", "handlebars");
 
 // middleware 
 
@@ -45,7 +53,7 @@ app.get("/api/courses", (req,res) => {
 
 // req.params returns an string, and id param is an integer.  Make sure your implementation data object types match
 app.get("/api/courses/:id", (req, res) => {
-  const course = lookupCourse(req, res)
+  const course = getCourseById(req, res)
   res.send(course);
 });
 
@@ -55,7 +63,7 @@ app.get("/api/courses/:id", (req, res) => {
     // logic - 
     // look up the course using the param ID  
     // if not found, return 404 Not Found, otherwise, 
-  const course = lookupCourse(req, res);
+  const course = getCourseById(req, res);
 
   //  validate the course
   const { error } = validateCourse(req.body); // using object destructuring
@@ -77,7 +85,7 @@ app.get("/api/courses/:id", (req, res) => {
 app.delete("/api/courses/:id", (req, res) => {
 // logic
 //  look-up course, if not found, return 404
-const course = lookupCourse(req, res);
+const course = getCourseById(req, res);
 //  delete if found
 const index = courses.indexOf(course);
 courses.splice(index,1);
@@ -96,10 +104,3 @@ function validateCourse(course) {
   });
   return schema.validate(course);
 };
-
-function lookupCourse(req, res) {
-  const course = courses.find(c => c.id === parseInt(req.params.id));
-  if (!course) // course not found, return 404
-    res.status(404).send("Id not found");
-  return course;
-}

@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+
+const courses = database;
+
+// application routes
+router.get("/api/courses/:id", (req, res) => {
+  const course = getCourseById(req, res)
+  res.render('main', course)
+  });
+
+  function getCourseById(req, res) {
+      const course = courses.summary[(parseInt(req.params.id))];
+      if (!course) // course not found, return 404
+        res.status(404).send("Id not found");
+        return course;
+    }
+
+    module.exports =
+    router;

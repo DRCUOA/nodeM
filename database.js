@@ -20,7 +20,7 @@ let courses = {
 
 mockDb.map((item) => {        
   courses.summary.push({ 
-      "id" :  'x',
+      "id" :  '',
       "name" : item.name.slice(0,-4).replace(/-summary/g,' ').replace(/-/g,' ').trim(),
       "path" : item.path      
   });
