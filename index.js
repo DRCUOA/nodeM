@@ -33,6 +33,13 @@ const { string } = require('joi');
 const { parse } = require('path');
 app.use(auth);
 
+
+//SEARCH
+
+app.post("/search", (req, res) => {
+  
+});
+
 // CREATE using post convention, always validate post input
 app.post("/api/courses", (req, res) => {
   const { error } = validateCourse(req.body);
