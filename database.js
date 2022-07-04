@@ -14,12 +14,12 @@ tree.children.forEach(fileName => {
   id++;
 });;
   
-let courses = {
+let books = {
   summary: []
 };
 
 mockDb.map((item) => {        
-  courses.summary.push({ 
+  books.summary.push({ 
       "id" :  '',
       "name" : item.name.slice(0,-4).replace(/-summary/g,' ').replace(/-/g,' ').trim(),
       "path" : item.path      
@@ -28,9 +28,9 @@ mockDb.map((item) => {
 
 let  i = 0;
 
-Object.entries(courses.summary).forEach(([key, value]) => {
-  courses.summary[key].id = i;
+Object.entries(books.summary).forEach(([key, value]) => {
+  books.summary[key].id = i;
   i++
 });
 
-module.exports = courses;
+module.exports = books;
