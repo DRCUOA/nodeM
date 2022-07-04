@@ -6,7 +6,8 @@ const Joi = require('joi');
 const database = require('./database');
 const courses = database;
 
-// Setup Handlebars
+
+// set up handlebars (not dep 5.4.3 )
 const handlebars = require("express-handlebars");
 app.engine("handlebars", handlebars({
     defaultLayout: "main"
@@ -15,14 +16,21 @@ app.engine("handlebars", handlebars({
 app.set("view engine", "handlebars");
 
 // middleware 
-
-app.use(express.json()); // express.json() adds a bit of middleware and 'app.use' makes the app use that middleware in the req processing pipeline
+// express.json() adds a bit of middleware and 'app.use' makes the app use that middleware in the req processing pipeline
+app.use(express.json()); 
+// express.urlencoded() enables read of key&value based HTTP requests and parses them into the res.body object  - give it the object ({extended: true}) or false depending if you want it to be able to parse arrays and complex objects.
+app.use(express.urlencoded({extended:true}));
+// express.static is middleware to serve static files
+// Make the "public" folder available statically
+const path = require("path");
+app.use(express.static(path.join(__dirname, "public")));
 
 const logger = require('./middleware/logger');
 app.use(logger);
 
 const auth = require('./middleware/auth');
 const { string } = require('joi');
+const { parse } = require('path');
 app.use(auth);
 
 // CREATE using post convention, always validate post input
@@ -44,18 +52,21 @@ app.post("/api/courses", (req, res) => {
 
 // READ using GET
 app.get("/", (req,res) => {
-  res.send("Hello World!");
+
+  const data = courses.summary;
+  res.render("home", {data : data});
 });
 
 app.get("/api/courses", (req,res) => {
-  res.send(courses); 
+   res.send(courses.summary)
 });
 
 // req.params returns an string, and id param is an integer.  Make sure your implementation data object types match
 app.get("/api/courses/:id", (req, res) => {
-  const course = getCourseById(req, res)
-  res.send(course);
-});
+  const lookUp = parseInt(req.params.id);
+  const requestedPath = courses.summary[lookUp].path.slice(6);
+    res.redirect(`${requestedPath}`);
+  });
 
 //UPDATE using PUT
 
