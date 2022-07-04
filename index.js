@@ -1,3 +1,9 @@
+/**
+ * BookSummaries
+ * V0.1.0 - Release Date 5 July 2022
+ * (c) & author Richard Clark 2022
+ */
+
 const express = require('express');
 const app = express();
 const Joi = require('joi');
