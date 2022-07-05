@@ -1,14 +1,17 @@
 {
-  "name": "nodemosh",
+  "name": "readsum",
   "version": "1.0.0",
-  "description": "",
+  "description": "book summary : practice app deployment",
+    "engines": {
+    "node": "16.15.1"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Richard Clark",
   "license": "ISC",
   "dependencies": {
     "directory-tree": "^3.3.0",

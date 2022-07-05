@@ -1,4 +1,4 @@
-# Logs
+f# Logs
 logs
 *.log
 npm-debug.log*
@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+.DS_Store
+/*.env
