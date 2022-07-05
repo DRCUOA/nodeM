@@ -1,11 +1,10 @@
-const dirTree = require('directory-tree');
-
 /** create a mock db
 * use the pdf files to create mock records in a JSON array
 *
 */
-
+const dirTree = require('directory-tree');
 const mockDb = [];
+
 let id = 0;
 
 const tree = dirTree("./public/assets")
@@ -27,7 +26,6 @@ mockDb.map((item) => {
 })
 
 let  i = 0;
-
 Object.entries(books.summary).forEach(([key, value]) => {
   books.summary[key].id = i;
   i++
