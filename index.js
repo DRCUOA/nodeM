@@ -44,7 +44,8 @@ app.use(auth);
 
 app.post("/search", (req, res) => {
   let searchSet = books.summary;
-  let searchString = req.body.searchString.toLowerCase;
+  let searchString = req.body.searchString.toLowerCase()
+  console.log(searchString);
   let filteredSet = searchSet.filter((value) => {
     if(value.name.includes(searchString))
     return value;
