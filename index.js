@@ -14,6 +14,26 @@ const Joi = require('joi');
 const database = require('./database');
 const books = database;
 
+// real database setup
+const mysql = require('mysql');
+
+  // create connection
+  const realDatabase = mysql.createConnection({
+    host  : 'localhost',
+    user  : 'root',
+    password : '123456',
+    database : 'nodemysql'
+  });
+
+  // connect
+  realDatabase.connect((err) =>{
+    if(err){
+      throw err;
+    } else {
+      console.log("MySql Db Connected...");
+    }
+
+  });
 
 // set up handlebars (not dep 5.4.3 )
 const handlebars = require("express-handlebars");
