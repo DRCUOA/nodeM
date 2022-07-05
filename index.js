@@ -8,6 +8,8 @@ const express = require('express');
 const app = express();
 const Joi = require('joi');
 
+// const CONCURRENCY = process.env.WEB_CONCURRENCY || 1;
+
 //setup link to mock database
 const database = require('./database');
 const books = database;
