@@ -22,13 +22,6 @@ dbaseDebugger('Database Console Log');
 const database = require('./database');
 const books = database;
 
-// set up handlebars (not dep 5.4.3 )
-const handlebars = require("express-handlebars");
-app.engine("handlebars", handlebars({
-  defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
-
 // middleware 
 // express.json() adds a bit of middleware and 'app.use' makes the app use that middleware in the req processing pipeline
 app.use(express.json());
