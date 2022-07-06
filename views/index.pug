@@ -1,0 +1,12 @@
+html
+  head 
+    title= title 
+  body 
+  table 
+      thead 
+        th="ReadSum Name "
+        th="File Relative Path " 
+        each val in data
+          tr 
+          td=val.name
+          td=val.path

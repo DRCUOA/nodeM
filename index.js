@@ -1,22 +1,30 @@
 /**
  * BookSummaries
- * V0.1.0 - Release Date 5 July 2022
+ * V0.1.1 - Not Released
  * (c) & author Richard Clark 2022
  */
-const startupDebugger = require('debug')('app:startup');
-const dbaseDebugger = require('debug')('app:dbase');
+
 const config = require('config');
 const express = require('express');
 const app = express();
+const startupDebugger = require('debug')('app:startup');
+const dbaseDebugger = require('debug')('app:dbase');
+
+// set view engine
+
+app.set('view-engine', 'pug');
+app.set('views', './views');
+app.set('default-view', 'index'); 
 
 //Configuration
 console.log(`Application Name : ${config.get('name')}`);
 console.log(`Mail-Server      : ${config.get('mail.host')}`);
 console.log(`Mail-Password    : ${config.get('mail.password')}`);
+
 // dev-gen debug
-startupDebugger("HTTP req         : [tiny] logging ON");
+startupDebugger("HTTP Req [tiny] console logging is ON");
 // dev-db debug
-dbaseDebugger('Database Console Log');
+dbaseDebugger('db console logging on');
 
 //setup link to mock database
 const database = require('./database');
@@ -42,7 +50,8 @@ if (app.get('env') === 'development') {
 // app root
 app.get("/", (req, res) => {
   const data = books.summary;
-  res.render("home", { data: data });
+  startupDebugger(data);
+  res.render("index.pug", { data: data });
 });
 
 // Search route
