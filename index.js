@@ -3,8 +3,20 @@
  * V0.1.0 - Release Date 5 July 2022
  * (c) & author Richard Clark 2022
  */
+const startupDebugger = require('debug')('app:startup');
+const dbaseDebugger = require('debug')('app:dbase');
+const config = require('config');
 const express = require('express');
 const app = express();
+
+//Configuration
+console.log(`Application Name : ${config.get('name')}`);
+console.log(`Mail-Server      : ${config.get('mail.host')}`);
+console.log(`Mail-Password    : ${config.get('mail.password')}`);
+// dev-gen debug
+startupDebugger("HTTP req         : [tiny] logging ON");
+// dev-db debug
+dbaseDebugger('Database Console Log');
 
 //setup link to mock database
 const database = require('./database');
@@ -26,8 +38,15 @@ app.use(express.urlencoded({ extended: true }));
 // Make the "public" folder available statically
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
+// security and http request logging middleware
+const helmet = require('helmet');
+const morgan = require('morgan');
+app.use(helmet());
+if (app.get('env') === 'development') {
+  app.use(morgan('tiny'));
+}
 
-// app Root
+// app root
 app.get("/", (req, res) => {
   const data = books.summary;
   res.render("home", { data: data });

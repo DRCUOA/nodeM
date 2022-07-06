@@ -1,0 +1,6 @@
+{
+  "name" : "ReadSum - Production",
+  "mail" : {
+    "host" :  "heroku-cloud-server"
+  } 
+}
