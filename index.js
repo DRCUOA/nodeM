@@ -18,13 +18,15 @@ app.set('default-view', 'index');
 
 //Configuration
 console.log(`Application Name : ${config.get('name')}`);
-console.log(`Mail-Server      : ${config.get('mail.host')}`);
-console.log(`Mail-Password    : ${config.get('mail.password')}`);
-
+console.log(`db-Password    : ${config.get('db.password')}`);
 // dev-gen debug
 startupDebugger("HTTP Req [tiny] console logging is ON");
 // dev-db debug
 dbaseDebugger('db console logging on');
+
+
+// mySQL db
+
 
 //setup link to mock database
 const database = require('./database');

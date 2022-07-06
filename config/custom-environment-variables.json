@@ -1,5 +1,8 @@
 {
   "mail" : {
     "password" : "readSum_pwk"
-  } 
+  },
+  "db" : {
+    "password" : "readSum_mySQL_pwk"
+  }
 }
