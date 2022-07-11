@@ -12,7 +12,7 @@ const dbaseDebugger = require('debug')('app:dbase');
 
 // set view engine
 
-app.set('view-engine', 'pug');
+app.set('view-engine', 'ejs');
 app.set('views', './views');
 app.set('default-view', 'index'); 
 
@@ -77,3 +77,25 @@ app.get("/api/books/:id", (req, res) => {
 // start the app running.  Define PORT -assign using the process object or default 3000.
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}`))
+
+
+
+let ejs = require('ejs');
+let people = [
+  { 'name': 'geddy', 
+    'age': 43
+  },
+  {
+    'name': 'mei', 
+    'age': 33
+  },
+  { 
+    'name': 'camu', 
+    'age': 23
+  }];
+
+let html = ejs.render('<h1>ESJ Test</h1>', {people: people});
+
+app.get('/ejs', (req, res) =>{
+  res.send(html);
+});
