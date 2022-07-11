@@ -13,8 +13,6 @@ const dbaseDebugger = require('debug')('app:dbase');
 // set view engine
 
 app.set('view-engine', 'ejs');
-app.set('views', './views');
-app.set('default-view', 'index'); 
 
 //Configuration
 console.log(`Application Name : ${config.get('name')}`);
@@ -53,7 +51,7 @@ if (app.get('env') === 'development') {
 app.get("/", (req, res) => {
   const data = books.summary;
   startupDebugger(data);
-  res.render("index.pug", { data: data });
+  res.render("pages/index.ejs", { data: data });
 });
 
 // Search route
