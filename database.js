@@ -7,7 +7,7 @@ const mockDb = [];
 
 let id = 0;
 
-const tree = dirTree("./public/assets")
+const tree = dirTree("./public/assets/pdfs")
 tree.children.forEach(fileName => {
   mockDb.push(fileName);
   id++;

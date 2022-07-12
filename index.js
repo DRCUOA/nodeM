@@ -10,6 +10,7 @@ const app = express();
 const startupDebugger = require('debug')('app:startup');
 const dbaseDebugger = require('debug')('app:dbase');
 
+
 // set view engine
 
 app.set('view-engine', 'ejs');
@@ -41,8 +42,16 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 // security and http request logging middleware
 const helmet = require('helmet');
+
+app.use(
+  helmet(
+    helmet.contentSecurityPolicy({useDefaults: true})  
+  )
+);
+
+
+
 const morgan = require('morgan');
-app.use(helmet());
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'));
 }

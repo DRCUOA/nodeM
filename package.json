@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "book summary : practice app deployment",
   "engines": {
-    "node": "16.15.1"
+    "node": "18.4.0"
   },
   "main": "index.js",
   "scripts": {
