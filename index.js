@@ -41,13 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 // security and http request logging middleware
-const helmet = require('helmet');
 
-app.use(
-  helmet(
-    helmet.contentSecurityPolicy({useDefaults: true})  
-  )
-);
 
 
 
@@ -59,8 +53,9 @@ if (app.get('env') === 'development') {
 // app root
 app.get("/", (req, res) => {
   const data = books.summary;
-  startupDebugger(data);
-  res.render("pages/index.ejs", { data: data });
+ // startupDebugger(data);
+  res.send("hello");
+ //res.render("pages/index.ejs", { data: data });
 });
 
 // Search route
