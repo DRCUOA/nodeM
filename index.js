@@ -53,9 +53,8 @@ if (app.get('env') === 'development') {
 // app root
 app.get("/", (req, res) => {
   const data = books.summary;
- // startupDebugger(data);
-  res.send("hello");
- //res.render("pages/index.ejs", { data: data });
+    startupDebugger(data);
+    res.render("pages/index.ejs", { data: data });
 });
 
 // Search route
