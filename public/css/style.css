@@ -5,6 +5,11 @@
   --dm-offset-primary: rgb(255,69,0);
 }
 
+#main-logo {
+  display: block;
+  align-items: flex-start;
+}
+
 #main-nav-search-btn {
   color: var(--lm-primary-color) ;  
 }
