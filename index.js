@@ -1,10 +1,10 @@
 /**
  * BookSummaries
- * V0.1.1 - Not Released
+ * V0.1.2 - Not Released
  * (c) & author Richard Clark 2022
  */
 
-const config = require('config');
+//const config = require('config');
 const express = require('express');
 const app = express();
 const startupDebugger = require('debug')('app:startup');
@@ -22,7 +22,6 @@ app.set('view-engine', 'ejs');
 startupDebugger("HTTP Req [tiny] console logging is ON");
 // dev-db debug
 dbaseDebugger('db console logging on');
-
 
 // mySQL db
 
