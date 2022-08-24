@@ -41,9 +41,6 @@ const path = require("path");
 app.use(express.static(path.join(__dirname, "public")));
 // security and http request logging middleware
 
-
-
-
 const morgan = require('morgan');
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'));
@@ -52,7 +49,7 @@ if (app.get('env') === 'development') {
 // app root
 app.get("/", (req, res) => {
   const data = books.summary;
-    startupDebugger(data);
+   // startupDebugger(data);
     res.render("pages/index.ejs", { data: data });
 });
 
@@ -76,4 +73,4 @@ app.get("/api/books/:id", (req, res) => {
 
 // start the app running.  Define PORT -assign using the process object or default 3000.
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Current Portal Host (built from ReadSum shell | Listening on port ${port}`))
