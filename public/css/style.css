@@ -1,61 +1,63 @@
+:root {
+  --body-container: 2px dashed red;
+  --nav: 2px dashed blue;
+  --main-logo: 2px dashed green;
+  --container-apps: 2px dashed blueviolet;
+  --app-container: 2px dashed black;
+  --search: 2px dashed rgb(3, 80, 80);
+  
+}
+
+.body-container {
+  /* border: var(--body-container) */
+  display: grid;
+  
+}
+
 .nav {
-  /* border: 1px solid red;
-  background: grey; */
-  position: sticky;
-  display: flex;
-  flex-direction: row;
-  gap: 15vw;
-  justify-content: space-evenly;
-  width:100vw;
+  /* border: var(--nav); */
 }
 
-.nav > a {
-  padding-top: .5rem;
-  font-size: 1.2rem;
-  text-decoration: none;
-  color: darkgray
-}
-
-.navbar-brand {
-  opacity: 1;
-}
-
-@media (hover :hover) {
-/* targets only devices that can hover*/
-  .nav > a:hover{
-  font-size: 1.2rem;
-  color: orangered
-  }
-}
-
-.nav > a:focus{
-  font-size: 1.2rem;
-  color: orangered
-}
-
-.main-logo{
-  position: absolute;
-  top: 13vh;
-  left: -8vw;
-  opacity: 1; 
+.main-logo {
+  /* border: var(--main-logo); */
 }
 
 .container-apps {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  position: relative;
-  top: 50vh;
-  /* padding: 8vw; */
-  justify-content: space-evenly;
-  width:100vw;
+  /* border: var(--container-apps); */
+}
+
+.app-container {
+  /* border: var(--app-container); */
 }
 
 .search {
-  position: relative;
-  top: 15vh;
+  /* border: var(--search); */
 }
 
 #nav-search-input {
   box-shadow: -3px 8px 18px darkgray;
 }
+
+
+
+.nav>a {}
+
+.navbar-brand {}
+
+
+
+@media (hover :hover) {
+
+  /* targets only devices that can hover*/
+  .nav>a:hover {
+    font-size: 1.2rem;
+    color: orangered
+  }
+}
+
+.nav>a:focus {
+  font-size: 1.2rem;
+  color: orangered
+}
+
+@media only screen and (max-height: 100px) {}
