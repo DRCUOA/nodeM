@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><%- include('../partials/head'); %></head>
-<header><%- include('../partials/header'); %></header>
-<body class="body-container">
-  <main>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nzWebApps</title>
+<link rel="icon" type="image/x-icon" href="/assets/logos/logoeditlowres.png">
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+
+<body>
+  <!-- section body container start app -->
+  <div class="body-container">
+    <!-- section nav -->
+    <div class="nav">
+      <a id="play" href="https://aotravens.herokuapp.com/">Play</a>
+    </div>
+    <div class="nav">
+      <a id="blog" href="https://beanboard.herokuapp.com/">Blog</a>
+    </div>
+    <div class="nav">
+      <a id="Learn" href="https://fullstack-test-1.herokuapp.com/home">Learn</a>
+    </div>
+    <!-- section mlg -->
     <div class="main-logo">
       <img id="mainlogo" src="\assets\logos\Logo Files --no text\For Web -no text\logo-nb-nt-smiley-500.png" alt="logo">
     </div>
-  </main>
-  <footer>
-    <%- include('../partials/footer'); %>
-  </footer>
-</body>
+    <!-- section ap1 -->
+    <div class="ap1">
+      <a href="https://aotravens.herokuapp.com/"><img src="/assets/logos/AoR.ico" alt="Attack of the Ravens" width="100" height="100"></a>
+      <a class="nav-link" href="https://aotravens.herokuapp.com/"></a>
+    </div>
+    <!-- section ap2 -->
+    <div class="ap2">  
+      <a href="https://beanboard.herokuapp.com/"><img src="/assets/logos/beantherelattely.ico" alt="BeanThereLatterly" width="100" height="100"></a>
+      <a class="nav-link" href="https://beanboard.herokuapp.com/"></a>
+    </div>  
+    <!-- section ap3 -->
+    <div class="ap3">  
+      <a href="https://fullstack-test-1.herokuapp.com/home"><img src="assets/logos/readsum_multiQVp_icon.ico" alt="learnlinkimg" width="100" height="100"></a>
+      <a class="nav-link" href="https://fullstack-test-1.herokuapp.com/home"></a>
+    </div>
+    <!-- section ser -->
+    <div class="ser">
+        <input type="search" placeholder="Search" aria-label="Search" id="nav-search-input">
+    </div>
 
+  </div>
+  <!-- section body container END app -->
+</body>
 </html>

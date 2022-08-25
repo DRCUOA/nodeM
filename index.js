@@ -73,4 +73,4 @@ app.get("/api/books/:id", (req, res) => {
 
 // start the app running.  Define PORT -assign using the process object or default 3000.
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Current Portal Host (built from ReadSum shell | Listening on port ${port}`))
+app.listen(port, () => console.log(`Current Front Page (built from ReadSum shell) | Listening on port ${port}`))
