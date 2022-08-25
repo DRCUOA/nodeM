@@ -60,7 +60,7 @@
 }
 
 .body-container>.ser {
-  margin-top: 5vh;
+  /* margin-top: 2vh; */
   grid-column: span 3;
 }
 
